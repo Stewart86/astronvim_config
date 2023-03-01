@@ -213,12 +213,20 @@ local config = {
                         ["<leader>bt"] = { "<cmd>BufferLineSortByTabs<cr>", desc = "Sort by tabs" },
                         ["<C-d>"] = { "<C-d>zz", desc = "page down with center cursor" },
                         ["<C-u>"] = { "<C-u>zz", desc = "page up with center cursor" },
+
+                        --make it rain
+                        ["<leader>gof"] = { "<cmd>CellularAutomaton game_of_life<CR>", desc = "game of life" },
+                        ["<leader>rain"] = { "<cmd>CellularAutomaton make_it_rain<CR>", desc = "make it rain" },
                         -- quick save
                         -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
                 },
                 t = {
                         -- setting a mapping to false will disable it
                         -- ["<esc>"] = false,
+                },
+                v = {
+                        ["J"] = { ":m '>+1<CR>gv=gv", desc = "selection move up" },
+                        ["K"] = { ":m '<-2<CR>gv=gv", desc = "selection move down" },
                 },
         },
         -- Configure plugins
@@ -234,8 +242,11 @@ local config = {
                                                 styles = {
                                                         sidebars = "transparent",
                                                 },
-                                                on_highlights = function(highlights, colors) highlights.LineNr = {
-                                                                fg = colors.yellow } end,
+                                                on_highlights = function(highlights, colors)
+                                                        highlights.LineNr = {
+                                                                fg = colors.yellow,
+                                                        }
+                                                end,
                                         }
                                 end,
                         },
@@ -260,6 +271,7 @@ local config = {
                         --     require("lsp_signature").setup()
                         --   end,
                         -- },
+                        ["eandrju/cellular-automaton.nvim"] = { opt = true, cmd = "CellularAutomaton" },
                 },
                 -- All other entries override the require("<key>").setup({...}) call for default plugins
                 ["null-ls"] = function(config) -- overrides `require("null-ls").setup(config)`
@@ -302,7 +314,7 @@ local config = {
                         -- ensure_installed = { "python" },
                 },
                 ["notify"] = {
-                        backgroun_colour = "#000000",
+                        background_colour = "#000000",
                 },
         },
         -- LuaSnip Options
