@@ -6,6 +6,7 @@
 -- where a value with no key simply has an implicit numeric key
 local config = {
         -- Configure AstroNvim updates
+
         updater = {
                 remote = "origin", -- remote to use
                 channel = "stable", -- "stable" or "nightly"
@@ -233,6 +234,8 @@ local config = {
                                                 styles = {
                                                         sidebars = "transparent",
                                                 },
+                                                on_highlights = function(highlights, colors) highlights.LineNr = {
+                                                                fg = colors.yellow } end,
                                         }
                                 end,
                         },
@@ -279,14 +282,14 @@ local config = {
                 -- use mason-lspconfig to configure LSP installations
                 ["mason-lspconfig"] = { -- overrides `require("mason-lspconfig").setup(...)`
                         ensure_installed = {
-                                "css-lsp",
+                                "cssls",
                                 "pyright",
-                                "rust-analyzer",
-                                "html-lsp",
-                                "json-lsp",
-                                "tailwindcss-language-server",
-                                "grammarly-languageserver",
-                                "eslint-lsp",
+                                "rust_analyzer",
+                                "html",
+                                "jsonls",
+                                "tailwindcss",
+                                "grammarly",
+                                "tsserver",
                         },
                         -- ensure_installed = { "sumneko_lua" },
                 },
@@ -297,6 +300,9 @@ local config = {
                 },
                 ["mason-nvim-dap"] = { -- overrides `require("mason-nvim-dap").setup(...)`
                         -- ensure_installed = { "python" },
+                },
+                ["notify"] = {
+                        backgroun_colour = "#000000",
                 },
         },
         -- LuaSnip Options
