@@ -25,7 +25,7 @@ local config = {
                 -- },
         },
         -- Set colorscheme to use
-        colorscheme = "tokyonight",
+        colorscheme = "gruvbox",
         -- Add highlight groups in any theme
         highlights = {
                 -- init = { -- this table overrides highlights in all themes
@@ -217,6 +217,14 @@ local config = {
                         --make it rain
                         ["<leader>gof"] = { "<cmd>CellularAutomaton game_of_life<CR>", desc = "game of life" },
                         ["<leader>rain"] = { "<cmd>CellularAutomaton make_it_rain<CR>", desc = "make it rain" },
+                        ["<leader>zd"] = {
+                                "<cmd>set foldmethod=expr<CR><cmd>set foldexpr=nvim_treesitter#foldexpr()<CR>",
+                                desc = "initialize folding and kept folded",
+                        },
+                        ["zd"] = {
+                                "<cmd>set foldmethod=expr<CR><cmd>set foldexpr=nvim_treesitter#foldexpr()<CR>zR",
+                                desc = "initialize folding",
+                        },
                         -- quick save
                         -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
                 },
@@ -247,6 +255,20 @@ local config = {
                                                                 fg = colors.yellow,
                                                         }
                                                 end,
+                                        }
+                                end,
+                        },
+                        {
+                                "ellisonleao/gruvbox.nvim",
+                                as = "gruvbox",
+                                config = function()
+                                        require("gruvbox").setup {
+                                                transparent_mode = true,
+                                                overrides = {
+                                                        LineNr = {
+                                                                fg = "#ff9900",
+                                                        },
+                                                },
                                         }
                                 end,
                         },
@@ -387,6 +409,11 @@ local config = {
         -- augroups/autocommands and custom filetypes also this just pure lua so
         -- anything that doesn't fit in the normal config locations above can go here
         polish = function()
+                vim.opt.foldmethod = "expr"
+                vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+                vim.api.nvim_create_autocmd({ "BufRead" }, {
+                        command = "set foldlevel=9999999",
+                })
                 -- Set up custom filetypes
                 -- vim.filetype.add {
                 --   extension = {
