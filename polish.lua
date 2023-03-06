@@ -2,11 +2,13 @@
 -- augroups/autocommands and custom filetypes also this just pure lua so
 -- anything that doesn't fit in the normal config locations above can go here
 return function()
-  vim.opt.foldmethod = "expr"
-  vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
   vim.api.nvim_create_autocmd({ "BufRead" }, {
     command = "set foldlevel=9999999",
   })
+  vim.api.nvim_create_autocmd(
+    { "BufRead", "BufNewFile" },
+    { pattern = { "*.txt", "*.md", "*.tex" }, command = "setlocal spell" }
+  )
   -- Set up custom filetypes
   -- vim.filetype.add {
   --   extension = {

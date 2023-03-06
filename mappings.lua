@@ -14,18 +14,9 @@ return {
     ["<leader>bt"] = { "<cmd>BufferLineSortByTabs<cr>", desc = "Sort by tabs" },
     ["<C-d>"] = { "<C-d>zz", desc = "page down with center cursor" },
     ["<C-u>"] = { "<C-u>zz", desc = "page up with center cursor" },
-
     --make it rain
     ["<leader>gof"] = { "<cmd>CellularAutomaton game_of_life<CR>", desc = "game of life" },
     ["<leader>rain"] = { "<cmd>CellularAutomaton make_it_rain<CR>", desc = "make it rain" },
-    ["<leader>zd"] = {
-      "<cmd>set foldmethod=expr<CR><cmd>set foldexpr=nvim_treesitter#foldexpr()<CR>",
-      desc = "initialize folding and kept folded",
-    },
-    ["zd"] = {
-      "<cmd>set foldmethod=expr<CR><cmd>set foldexpr=nvim_treesitter#foldexpr()<CR>zR",
-      desc = "initialize folding",
-    },
     -- quick save
     -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
   },

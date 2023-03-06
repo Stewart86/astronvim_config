@@ -6,4 +6,7 @@ return {
   -- duskfox = { -- a table of overrides/changes to the duskfox theme
   --   Normal = { bg = "#000000" },
   -- },
+  gruvbox = {
+    Normal = { bg = "NONE" },
+  },
 }
