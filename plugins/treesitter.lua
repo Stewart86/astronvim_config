@@ -1,3 +1,3 @@
-return { -- overrides `require("treesitter").setup(...)`
+return {
   auto_install = true,
 }

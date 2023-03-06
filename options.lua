@@ -2,13 +2,18 @@
 return {
   opt = {
     -- set to true or false etc.
-    relativenumber = true,                   -- sets vim.opt.relativenumber
-    number = true,                           -- sets vim.opt.number
-    spell = false,                           -- sets vim.opt.spell
-    signcolumn = "auto",                     -- sets vim.opt.signcolumn to auto
-    wrap = false,                            -- sets vim.opt.wrap
-    foldexpr = "nvim_treesitter#foldexpr()", -- set Treesitter based folding
-    foldmethod = "expr",
+    relativenumber = true, -- sets vim.opt.relativenumber
+    number = true,         -- sets vim.opt.number
+    spell = false,         -- sets vim.opt.spell
+    signcolumn = "auto",   -- sets vim.opt.signcolumn to auto
+    wrap = false,          -- sets vim.opt.wrap
+    foldcolumn = "1",
+    foldlevel = 99,
+    foldlevelstart = 99,
+    foldenable = true,
+    fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]],
+    -- foldexpr = "nvim_treesitter#foldexpr()", -- set Treesitter based folding
+    -- foldmethod = "expr",
   },
   g = {
     mapleader = " ",                   -- sets vim.g.mapleader

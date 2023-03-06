@@ -12,11 +12,15 @@ return {
     ["<leader>bc"] = { "<cmd>BufferLinePickClose<cr>", desc = "Pick to close" },
     ["<leader>bj"] = { "<cmd>BufferLinePick<cr>", desc = "Pick to jump" },
     ["<leader>bt"] = { "<cmd>BufferLineSortByTabs<cr>", desc = "Sort by tabs" },
+    -- page up and down with centre cursor
     ["<C-d>"] = { "<C-d>zz", desc = "page down with center cursor" },
     ["<C-u>"] = { "<C-u>zz", desc = "page up with center cursor" },
     --make it rain
     ["<leader>gof"] = { "<cmd>CellularAutomaton game_of_life<CR>", desc = "game of life" },
     ["<leader>rain"] = { "<cmd>CellularAutomaton make_it_rain<CR>", desc = "make it rain" },
+    -- ufo mapping
+    ["zR"] = { require("ufo").openAllFolds, desc = "open all fold with UFO" },
+    ["zM"] = { require("ufo").closeAllFolds, desc = "close all fold with UFO" },
     -- quick save
     -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
   },
