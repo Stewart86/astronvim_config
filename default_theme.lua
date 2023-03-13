@@ -10,6 +10,7 @@ return {
 
                 hl.Normal = { fg = C.none, bg = C.none }
                 hl.StatusLine = { bg = C.none }
+                hl.FoldColumn = { bg = C.none }
 
                 -- New approach instead of diagnostic_style
                 hl.DiagnosticError.italic = true
@@ -40,5 +41,6 @@ return {
                 treesitter = true,
                 vimwiki = false,
                 ["which-key"] = true,
+                ufo = true,
         },
 }

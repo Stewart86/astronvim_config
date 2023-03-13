@@ -6,6 +6,7 @@ return function()
     { "BufRead", "BufNewFile" },
     { pattern = { "*.txt", "*.md", "*.tex" }, command = "setlocal spell" }
   )
+  vim.api.nvim_set_hl(0, "FoldColumn", { bg = "NONE", fg = "#404040" })
   -- Set up custom filetypes
   -- vim.filetype.add {
   --   extension = {

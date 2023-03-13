@@ -102,6 +102,19 @@ return {
             end,
             provider_selector = function(bufnr, filetype, buftype) return { "treesitter", "indent" } end,
             enable_get_fold_virt_text = true,
+            preview = {
+                win_config = {
+                    border = { "", "─", "", "", "", "─", "", "" },
+                    winhighlight = "Normal:Folded",
+                    winblend = 0,
+                },
+                mappings = {
+                    scrollU = "<C-u>",
+                    scrollD = "<C-d>",
+                    jumpTop = "[",
+                    jumpBot = "]",
+                },
+            },
         },
     },
     -- FIXME:
