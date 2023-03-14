@@ -18,9 +18,15 @@ return {
     --make it rain
     ["<leader>gof"] = { "<cmd>CellularAutomaton game_of_life<CR>", desc = "game of life" },
     ["<leader>rain"] = { "<cmd>CellularAutomaton make_it_rain<CR>", desc = "make it rain" },
-    -- ufo mapping
-    ["zR"] = { require("ufo").openAllFolds, desc = "open all fold with UFO" },
-    ["zM"] = { require("ufo").closeAllFolds, desc = "close all fold with UFO" },
+    -- buffer switch
+    ["L"] = {
+      function() require("astronvim.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end,
+      desc = "Next buffer",
+    },
+    ["H"] = {
+      function() require("astronvim.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end,
+      desc = "Previous buffer",
+    },
     -- quick save
     -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
   },
