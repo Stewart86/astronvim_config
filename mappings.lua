@@ -15,9 +15,6 @@ return {
     -- page up and down with centre cursor
     ["<C-d>"] = { "<C-d>zz", desc = "page down with center cursor" },
     ["<C-u>"] = { "<C-u>zz", desc = "page up with center cursor" },
-    --make it rain
-    ["<leader>gof"] = { "<cmd>CellularAutomaton game_of_life<CR>", desc = "game of life" },
-    ["<leader>rain"] = { "<cmd>CellularAutomaton make_it_rain<CR>", desc = "make it rain" },
     -- buffer switch
     ["L"] = {
       function() require("astronvim.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end,
@@ -27,8 +24,6 @@ return {
       function() require("astronvim.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end,
       desc = "Previous buffer",
     },
-    -- quick save
-    -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
   },
   t = {
     -- setting a mapping to false will disable it
