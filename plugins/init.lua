@@ -9,7 +9,7 @@ return {
     lazy = true,
     cmd = "CellularAutomaton",
     keys = {
-      { "<leader>gof",  "<cmd>CellularAutomaton game_of_life<CR>", desc = "game of life" },
+      { "<leader>gof", "<cmd>CellularAutomaton game_of_life<CR>", desc = "game of life" },
       { "<leader>rain", "<cmd>CellularAutomaton make_it_rain<CR>", desc = "make it rain" },
     },
   },
@@ -38,15 +38,24 @@ return {
   --   config = function() require("lsp_signature.nvim").setup() end,
   -- },
   -- {"mg979/vim-visual-multi"},
-  -- {"neotest-python"},
-  -- {"neotest-rust"},
-  -- {"neotest-jest"},
   -- https://github.com/nvim-neotest/neotest
+  -- { "nvim-neotest/neotest-python" },
+  -- {"nvim-neotest/neotest-rust"},
+  -- {"nvim-neotest/neotest-jest"},
+  -- { "antoinemadec/FixCursorHold.nvim" },
   -- {
   --   "nvim-neotest/neotest",
   --   dependencies = {
   --     "nvim-lua/plenary.nvim",
   --     "nvim-treesitter/nvim-treesitter",
+  --     "antoinemadec/FixCursorHold.nvim",
+  --   },
+  --   config = {
+  --     adapters = {
+  --       require "neotest-python" {
+  --         dap = { justMyCode = true },
+  --       },
+  --     },
   --   },
   -- },
 }
