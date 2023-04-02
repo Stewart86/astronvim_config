@@ -1,5 +1,15 @@
 return {
   {
+    "williamboman/mason.nvim",
+    config = function()
+      require("mason").setup {
+        ui = {
+          border = "rounded",
+        },
+      }
+    end,
+  },
+  {
     "rcarriga/nvim-notify",
     config = { background_colour = "#000000" },
   },
@@ -9,7 +19,7 @@ return {
     lazy = true,
     cmd = "CellularAutomaton",
     keys = {
-      { "<leader>gof", "<cmd>CellularAutomaton game_of_life<CR>", desc = "game of life" },
+      { "<leader>gof",  "<cmd>CellularAutomaton game_of_life<CR>", desc = "game of life" },
       { "<leader>rain", "<cmd>CellularAutomaton make_it_rain<CR>", desc = "make it rain" },
     },
   },
@@ -26,36 +36,45 @@ return {
   },
   {
     "nvim-treesitter/nvim-treesitter",
-    auto_install = true,
+    dependencies = {
+      {
+        "andymass/vim-matchup",
+        init = function() vim.g.matchup_matchparen_deferred = 1 end,
+      },
+      {
+        "HiPhish/nvim-ts-rainbow2",
+        config = function()
+          vim.api.nvim_create_autocmd({ "BufWritePost", "FocusGained" }, {
+            callback = function()
+              vim.cmd.TSDisable "rainbow"
+              vim.cmd.TSEnable "rainbow"
+            end,
+          })
+        end,
+      },
+    },
+    opts = {
+      auto_install = true,
+      highlight = { disable = { "help" } },
+      matchup = { enable = true },
+      rainbow = { enable = true },
+    },
   },
   {
     "nvim-treesitter/nvim-treesitter-context",
     dependencies = "nvim-treesitter/nvim-treesitter",
   },
+  {
+    "ray-x/lsp_signature.nvim",
+    config = true,
+    event = "InsertEnter",
+  },
+
+  -- {
+  --   "HallerPatrick/py_lsp.nvim",
+  --   event = "BufEnter",
+  --   config = true,
+  -- },
   -- TODO:
-  -- {
-  --   "ray-x/lsp_signature.nvim",
-  --   config = function() require("lsp_signature.nvim").setup() end,
-  -- },
   -- {"mg979/vim-visual-multi"},
-  -- https://github.com/nvim-neotest/neotest
-  -- { "nvim-neotest/neotest-python" },
-  -- {"nvim-neotest/neotest-rust"},
-  -- {"nvim-neotest/neotest-jest"},
-  -- { "antoinemadec/FixCursorHold.nvim" },
-  -- {
-  --   "nvim-neotest/neotest",
-  --   dependencies = {
-  --     "nvim-lua/plenary.nvim",
-  --     "nvim-treesitter/nvim-treesitter",
-  --     "antoinemadec/FixCursorHold.nvim",
-  --   },
-  --   config = {
-  --     adapters = {
-  --       require "neotest-python" {
-  --         dap = { justMyCode = true },
-  --       },
-  --     },
-  --   },
-  -- },
 }

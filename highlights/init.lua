@@ -9,5 +9,6 @@ return function()
     FoldColumn = { fg = line_nr.fg, bg = bg },
     LineNr = { fg = line_nr.fg, bg = bg },
     CursorLineNr = { fg = cursor_nr.fg, bg = bg },
+    NormalFloat = { bg = bg },
   }
 end

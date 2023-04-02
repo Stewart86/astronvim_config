@@ -3,6 +3,8 @@
 -- Please use this mappings table to set keyboard mapping since this is the
 -- lower level configuration and more robust one. (which-key will
 -- automatically pick-up stored data by this setting.)
+
+local neotest = require "neotest"
 return {
   -- first key is the mode
   n = {
@@ -23,6 +25,14 @@ return {
     ["H"] = {
       function() require("astronvim.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end,
       desc = "Previous buffer",
+    },
+    ["<leader>T"] = {
+      name = "+Unit Test",
+      t = { function() neotest.run.run() end, "Run test" },
+      s = { function() neotest.summary.toggle() end, "Toggle summary" },
+      o = { function() neotest.output.open() end, "Open output" },
+      p = { function() neotest.output_panel.toggle() end, "Toggle output panel" },
+      f = { function() neotest.run.run(vim.fn.expand "%") end, "Run current file" },
     },
   },
   t = {
