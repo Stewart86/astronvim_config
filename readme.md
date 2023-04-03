@@ -21,6 +21,12 @@ git clone https://github.com/AstroNvim/AstroNvim.git ~/.config/nvim
 git clone https://github.com/stewart86/astronvim_config ~/.config/nvim/lua/user
 ```
 
+- Unattended Installation
+
+```shell
+nvim --headless -c 'quitall'
+```
+
 ## To Be Included
 
 - `ThePrimeagen/refactoring.nvim`
