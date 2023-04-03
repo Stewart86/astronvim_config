@@ -34,5 +34,9 @@ return {
       },
       cache_enabled = true,
     },
+    -- gitblame settings for less distraction
+    gitblame_delay = 10000,
+    gitblame_message_when_not_committed = "...",
+    gitblame_date_format = "%r",
   },
 }
