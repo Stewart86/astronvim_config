@@ -19,7 +19,7 @@ return {
     lazy = true,
     cmd = "CellularAutomaton",
     keys = {
-      { "<leader>gof",  "<cmd>CellularAutomaton game_of_life<CR>", desc = "game of life" },
+      { "<leader>gof", "<cmd>CellularAutomaton game_of_life<CR>", desc = "game of life" },
       { "<leader>rain", "<cmd>CellularAutomaton make_it_rain<CR>", desc = "make it rain" },
     },
   },
@@ -33,11 +33,6 @@ return {
     event = "BufEnter",
     dependencies = "nvim-lua/plenary.nvim",
     config = true,
-  },
-  {
-    "ray-x/lsp_signature.nvim",
-    config = true,
-    event = "InsertEnter",
   },
   {
     "f-person/git-blame.nvim",
