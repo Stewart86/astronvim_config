@@ -19,7 +19,7 @@ return {
     lazy = true,
     cmd = "CellularAutomaton",
     keys = {
-      { "<leader>gof", "<cmd>CellularAutomaton game_of_life<CR>", desc = "game of life" },
+      { "<leader>gof",  "<cmd>CellularAutomaton game_of_life<CR>", desc = "game of life" },
       { "<leader>rain", "<cmd>CellularAutomaton make_it_rain<CR>", desc = "make it rain" },
     },
   },
