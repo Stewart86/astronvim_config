@@ -19,7 +19,7 @@ return {
     lazy = true,
     cmd = "CellularAutomaton",
     keys = {
-      { "<leader>gof", "<cmd>CellularAutomaton game_of_life<CR>", desc = "game of life" },
+      { "<leader>gof",  "<cmd>CellularAutomaton game_of_life<CR>", desc = "game of life" },
       { "<leader>rain", "<cmd>CellularAutomaton make_it_rain<CR>", desc = "make it rain" },
     },
   },
@@ -37,6 +37,13 @@ return {
   {
     "f-person/git-blame.nvim",
     event = "BufEnter",
+  },
+  { "https://git.sr.ht/~whynothugo/lsp_lines.nvim", event = "LspAttach", opts = {} },
+  {
+    "willothy/flatten.nvim",
+    opts = {},
+    lazy = false,
+    priority = 1001
   },
   {
     "zbirenbaum/neodim",
