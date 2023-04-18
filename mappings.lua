@@ -27,12 +27,20 @@ return {
       desc = "Previous buffer",
     },
     ["<leader>T"] = {
-      name = "+Unit Test",
+      name = "󰙨 Unit Test",
       t = { function() neotest.run.run() end, "Run test" },
       s = { function() neotest.summary.toggle() end, "Toggle summary" },
       o = { function() neotest.output.open() end, "Open output" },
       p = { function() neotest.output_panel.toggle() end, "Toggle output panel" },
       f = { function() neotest.run.run(vim.fn.expand "%") end, "Run current file" },
+    },
+    ["<leader>c"] = {
+      function()
+        local bufs = vim.fn.getbufinfo { buflisted = true }
+        require("astronvim.utils.buffer").close(0)
+        if require("astronvim.utils").is_available "alpha-nvim" and not bufs[2] then require("alpha").start(true) end
+      end,
+      desc = "Close buffer",
     },
   },
   t = {

@@ -38,7 +38,7 @@ return {
 					},
 				},
 				on_click = {
-					callback = function() vim.cmd.VenvSelectCached() end,
+					callback = function() vim.cmd.VenvSelect() end,
 					name = "heirline_statusline_venv_selector",
 				},
 			},
