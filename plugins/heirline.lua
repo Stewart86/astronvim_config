@@ -1,47 +1,55 @@
+local status = require "astronvim.utils.status"
+
 local venv = function()
 	local venv_name = require("venv-selector").get_active_venv()
 	if venv_name ~= nil then
 		return string.gsub(venv_name, ".*/pypoetry/virtualenvs/", "(poetry) ")
 	else
-		return "venv"
+		return "global"
+	end
+end
+
+local python_venv = function()
+	local python_dir = vim.fn.findfile("pyproject.toml", vim.fn.getcwd() .. ";")
+	if python_dir ~= "" then
+		return status.component.builder {
+			{
+				provider = "  ",
+				hl = {
+					fg = "#906cff",
+				},
+			},
+			{
+				provider = function() return venv() end,
+				hl = {
+					fg = "#ffffff",
+				},
+			},
+			on_click = {
+				callback = function() vim.cmd.VenvSelect() end,
+				name = "heirline_statusline_venv_selector",
+			},
+		}
+	else
+		return status.component.file_info { filetype = {}, filename = false, file_modified = false }
 	end
 end
 
 return {
 	"rebelot/heirline.nvim",
 	opts = function(_, opts)
-		local status = require "astronvim.utils.status"
-
 		opts.statusline = {
 			-- statusline
 			hl = { fg = "fg", bg = "bg" },
 			status.component.mode(),
 			status.component.git_branch(),
-			status.component.file_info { filetype = {}, filename = false, file_modified = false },
 			status.component.git_diff(),
 			status.component.diagnostics(),
 			status.component.fill(),
 			status.component.cmd_info(),
 			status.component.fill(),
 			status.component.lsp({ lsp_progress = false }),
-			status.component.builder {
-				{
-					provider = "  ",
-					hl = {
-						fg = "#906cff",
-					},
-				},
-				{
-					provider = function() return venv() end,
-					hl = {
-						fg = "#ffffff",
-					},
-				},
-				on_click = {
-					callback = function() vim.cmd.VenvSelect() end,
-					name = "heirline_statusline_venv_selector",
-				},
-			},
+			python_venv(),
 			status.component.treesitter(),
 			status.component.nav(),
 		}

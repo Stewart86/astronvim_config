@@ -63,3 +63,10 @@ return {
     },
   },
 }
+-- to be included
+-- andythigpen/nvim-coverage
+-- EthanJWright/vs-tasks.nvim
+-- vuki656/package-info.nvim
+--
+-- to build
+-- python dependencies management

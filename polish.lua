@@ -35,8 +35,8 @@ return function()
     pattern = "AstroBufsUpdated",
     group = "selectvenvcached",
     callback = function()
-      local venv = vim.fn.findfile("pyproject.toml", vim.fn.getcwd() .. ";")
-      if venv ~= "" then
+      local python_dir = vim.fn.findfile("pyproject.toml", vim.fn.getcwd() .. ";")
+      if python_dir ~= "" then
         require("venv-selector").retrieve_from_cache()
       end
     end,

@@ -1,1 +1,2 @@
-return "gruvbox"
+-- return "tokyonight-storm"
+return "kanagawa-wave"
