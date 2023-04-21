@@ -8,6 +8,10 @@ local transparent = function(hl_groups)
   return c
 end
 
+local other_hl = {
+  String = vim.tbl_extend("force", get_hlgroup "String", { fg = "#b0db6f" })
+}
+
 local hl = transparent {
   "CursorLine",
   "CursorLineNr",
@@ -73,7 +77,7 @@ local hl = transparent {
   "TelescopeBorder",
 }
 if vim.o.background == "dark" then
-  return hl
+  return vim.tbl_extend("force", hl, other_hl)
 else
   return {}
 end
