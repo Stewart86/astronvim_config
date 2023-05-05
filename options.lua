@@ -22,6 +22,16 @@ return {
     heirline_bufferline = true,
     loaded_ruby_provider = 0,
     loaded_perl_provider = 0,
+    clipboard = {
+      copy = {
+        ["+"] = "wl-copy",
+        ["*"] = "wl-copy",
+    },
+      paste = {
+        ["+"] = "wl-paste --no-newline",
+        ["*"] = "wl-paste --no-newline",
+      },
+    },
     -- gitblame settings for less distraction
     gitblame_delay = 20000,
     gitblame_message_when_not_committed = "...",

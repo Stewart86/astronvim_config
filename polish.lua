@@ -4,7 +4,7 @@
 return function()
   -- create an augroup to easily manage autocommands
   vim.api.nvim_create_augroup("autohidetabline", { clear = true })
-  vim.api.nvim_create_augroup("selectvenvcached", { clear = true })
+  -- vim.api.nvim_create_augroup("selectvenvcached", { clear = true })
 
   vim.api.nvim_create_autocmd(
     { "BufRead", "BufNewFile" },
@@ -27,19 +27,5 @@ return function()
         vim.opt.showtabline = new_showtabline
       end
     end,
-  })
-
-  -- Auto select virtualenv when opening a file
-  vim.api.nvim_create_autocmd("User", {
-    desc = "Auto select virtualenv Nvim open",
-    pattern = "AstroBufsUpdated",
-    group = "selectvenvcached",
-    callback = function()
-      local python_dir = vim.fn.findfile("pyproject.toml", vim.fn.getcwd() .. ";")
-      if python_dir ~= "" then
-        require("venv-selector").retrieve_from_cache()
-      end
-    end,
-    once = true,
   })
 end
