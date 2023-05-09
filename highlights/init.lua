@@ -9,7 +9,7 @@ local transparent = function(hl_groups)
 end
 
 local other_hl = {
-  String = vim.tbl_extend("force", get_hlgroup "String", { fg = "#b0db6f" })
+  String = vim.tbl_extend("force", get_hlgroup "String", { fg = "#b0db6f" }),
 }
 
 local hl = transparent {
